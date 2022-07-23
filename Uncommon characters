@@ -1,0 +1,43 @@
+Given two strings A and B. Find the characters that are not common in the two strings. 
+
+Example 1:
+
+Input:
+A = geeksforgeeks
+B = geeksquiz
+Output: fioqruz
+Explanation: 
+The characters 'f', 'i', 'o', 'q', 'r', 'u','z' 
+are either present in A or B, but not in both.
+
+
+Solution:
+
+
+class Solution
+{
+    String UncommonChars(String A, String B)
+    {
+        // code here
+        TreeSet<String> str = new TreeSet<String>();
+        
+        for(char c : A.toCharArray()){
+            if(!B.contains(String.valueOf(c))){
+                str.add(String.valueOf(c));
+            }
+        }
+        
+        
+        for(char c : B.toCharArray()){
+            if(!A.contains(String.valueOf(c))){
+                str.add(String.valueOf(c));
+            }
+        }
+        
+        if(str.size()<1){
+            return "-1";
+        }else{
+            return String.join("",str);
+        }        
+    }
+}
