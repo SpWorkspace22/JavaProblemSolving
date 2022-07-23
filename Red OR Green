@@ -1,0 +1,42 @@
+Given a string of length N, made up of only uppercase characters 'R' and 'G', where 'R' stands for Red and 'G' stands for Green.Find out the minimum number of characters you need to change to make the whole string of the same colour.
+
+Example 1:
+
+Input:
+N=5
+S="RGRGR"
+Output:
+2
+Explanation:
+We need to change only the 2nd and 
+4th(1-index based) characters to 'R', 
+so that the whole string becomes 
+the same colour.
+
+
+
+Solution:
+
+class Solution {
+    static int RedOrGreen(int N, String S) {
+        //code here
+        int charCount[] = new int[2];
+        
+        for(char c : S.toCharArray()){
+            if(c=='R'){
+                charCount[0]=charCount[0]+1;
+            }else{
+                charCount[1]=charCount[1]+1;
+            }
+        }
+        
+        if(charCount[0]>charCount[1]){
+            return S.length()-charCount[0];
+        }else if (charCount[1]>charCount[0]){
+            return S.length()-charCount[1];
+        }else{
+            return charCount[0];
+        }
+        
+        
+    }
