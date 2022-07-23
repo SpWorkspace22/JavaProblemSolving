@@ -1,0 +1,42 @@
+Given two strings s1 and s2. Modify both the strings such that all the common characters of s1 and s2 
+are to be removed and the uncommon characters of s1 and s2 are to be concatenated.
+Note: If all characters are removed print -1.
+
+Input:
+s1 = aacdb
+s2 = gafd
+Output: cbgf
+Explanation: The common characters of s1
+and s2 are: a, d. The uncommon characters
+of s1 and s2 are c, b, g and f. Thus the
+modified string with uncommon characters
+concatenated is cbgf.
+
+Solutuon:
+
+class Solution
+{
+    //Function to remove common characters and concatenate two strings.
+    public static String concatenatedString(String s1,String s2)
+    {
+        // Your code here
+        
+       String fina="";
+       for(int i=0;i<s1.length();i++){
+           if(!s2.contains(Character.toString(s1.charAt(i)))){
+               fina+=s1.charAt(i);
+           }
+       }
+        for(int i=0;i<s2.length();i++){
+           if(!s1.contains(Character.toString(s2.charAt(i)))){
+               fina+=s2.charAt(i);
+           }
+       }
+       if(fina=="") return "-1";
+       return fina;
+        
+        
+    }
+}
+
+
