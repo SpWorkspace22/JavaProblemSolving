@@ -1,0 +1,33 @@
+Given a string str containing alphanumeric characters. The task is to calculate the sum of all the numbers present in the string.
+
+Example 1:
+
+Input:
+str = 1abc23
+Output: 24
+Explanation: 1 and 23 are numbers in the
+string which is added to get the sum as
+24.
+
+
+Solution:
+
+class Solution
+{
+    //Function to calculate sum of all numbers present in a string.
+    public static long findSum(String str)
+    {
+        // your code here
+        int sum = 0;
+        
+        str = str. replaceAll("[^\\d.]"," ");
+        str = str.trim().replaceAll(" +"," ");
+        
+        for(String c : str.split(" ")){
+            sum = sum + Integer.parseInt(c);
+        }
+        
+        return sum;
+    }
+    
+}
