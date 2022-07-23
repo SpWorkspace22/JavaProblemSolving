@@ -1,0 +1,64 @@
+Given a string str. The task is to find the maximum occurring character in the string str. If more than one character occurs the maximum number of time then print the lexicographically smaller character.
+
+Example 1:
+
+Input:
+str = testsample
+Output: e
+Explanation: e is the character which
+is having the highest frequency.
+
+Example 2:
+
+Input:
+str = output
+Output: t
+Explanation:  t and u are the characters
+with the same frequency, but t is
+lexicographically smaller.
+
+Your Task:
+The task is to complete the function getMaxOccuringChar() which returns the character which is most occurring.
+
+Expected Time Complexity: O(N).
+Expected Auxiliary Space: O(Number of distinct characters).
+Note: N = |s|
+
+Constraints:
+1 ≤ |s| ≤ 100
+
+
+Solution :
+
+
+class Solution
+{
+    //Function to find the maximum occurring character in a string.
+    public static char getMaxOccuringChar(String line)
+    {
+        // Your code here
+        TreeMap<Character, Integer> hs = new TreeMap<Character, Integer>();
+        
+        for(char c : line.toCharArray()){
+            if(hs.containsKey(c)){
+               hs.put(c,hs.get(c)+1); 
+            }else{
+                hs.put(c,0); 
+            }
+        }
+        
+        int maxvalue = -1;
+        char k = '\0';
+        for(Map.Entry<Character, Integer> entry : hs.entrySet()){
+            //  System.out.println("Key = " + entry.getKey() +
+            //              ", Value = " + entry.getValue()); 
+            if(entry.getValue()>maxvalue){
+                maxvalue = entry.getValue();
+                k = entry.getKey();
+            }
+        }
+        
+        return k;
+    }
+    
+}
