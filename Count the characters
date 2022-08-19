@@ -1,0 +1,44 @@
+Given a string S. Count the characters that have ‘N’ number of occurrences. If a character appears consecutively it is counted as 1 occurrence.
+
+Example 1:
+
+Input:
+S = "abc", N = 1
+Output: 3
+Explanation: 'a', 'b' and 'c' all have 
+1 occurrence.
+
+
+Solution:
+
+
+class Sol
+{
+    int getCount (String S, int N)
+    {
+        // your code here
+        HashMap<String, Integer> hs = new HashMap<String,Integer>();
+        
+        for(int i=0; i<S.length();i++){
+            String s = String.valueOf(S.charAt(i));
+            if(!hs.containsKey(s)){
+                hs.put(s,1);
+            }else if(S.charAt(i-1)==S.charAt(i)){
+                continue;
+            }else{
+                hs.put(s,hs.get(s)+1);
+            }
+        }
+        
+        
+        int charCount = 0;
+        
+        for(Map.Entry<String,Integer> mapElement : hs.entrySet()) {
+            if(mapElement.getValue()==N){
+                charCount++;
+            }
+        }
+        
+        return charCount;
+    }
+}
