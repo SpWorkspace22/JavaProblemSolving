@@ -1,0 +1,39 @@
+In this problem, a String S is composed of lowercase alphabets and wildcard characters i.e. '?'. Here, '?' can be replaced by any of the lowercase alphabets. 
+Now you have to classify the given String on the basis of following rules:
+If there are more than 3 consonants together or more than 5 vowels together, the String is considered to be "BAD". A String is considered "GOOD" only if it is not “BAD”.
+NOTE: String is considered as "BAD" if the above condition is satisfied even once. Else it is "GOOD" and the task is to make the string "BAD".
+
+Input:
+S = aeioup??
+Output:
+1
+Explanation: The String doesn't contain more
+than 3 consonants or more than 5 vowels together.
+So, it's a GOOD string.
+
+Solution:
+
+class Solution {
+    static int isGoodorBad(String s) {
+        // code here
+    
+        int vCount=0,cCount=0;
+       for(int i=0;i<s.length();i++){
+           if(s.charAt(i)=='?'){
+               vCount++; cCount++;
+           }
+           else if(s.charAt(i)=='a' || s.charAt(i)=='e' || s.charAt(i)=='i' || s.charAt(i)=='o' || s.charAt(i)=='u' ){
+               cCount=0;
+               vCount++;
+           }
+           else{
+               vCount=0;
+               cCount++;
+           }
+           if(cCount>3 || vCount>5){
+               return 0;
+           }
+       }
+       return 1;
+    }
+};
