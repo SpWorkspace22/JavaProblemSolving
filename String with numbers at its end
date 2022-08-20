@@ -1,0 +1,30 @@
+Given string s that is appended with a number at last. The task is to check whether the length of string excluding that number is equal to that number.
+Example 1:
+
+Input:  s = "geeks5"
+Output: 1
+Explanation: Length of geeks is 5
+and the last number is also 5.
+
+
+Solution :
+
+class Solution {
+    int isSame(String s) {
+        // code here
+        int len =0,count=0;
+        for(int i=0;i<s.length();i++){
+           if(Character.isLetter(s.charAt(i))){ 
+               len++;
+           }
+           if(Character.isDigit(s.charAt(i))){
+               count = count*10 + (int)(s.charAt(i)-'0');
+           }
+        }
+       if(len==count){
+           return 1;
+       }else {
+           return 0;
+       }
+    }
+}
