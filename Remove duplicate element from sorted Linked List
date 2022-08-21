@@ -1,0 +1,36 @@
+Given a singly linked list consisting of N nodes. The task is to remove duplicates (nodes with duplicate values) from the given list (if exists).
+Note: Try not to use extra space. Expected time complexity is O(N). The nodes are arranged in a sorted way
+
+Input:
+LinkedList: 2->2->4->5
+Output: 2 4 5
+Explanation: In the given linked list 
+2 ->2 -> 4-> 5, only 2 occurs more 
+than 1 time.
+
+
+Solution:
+
+class GfG
+{
+    //Function to remove duplicates from sorted linked list.
+    Node removeDuplicates(Node head)
+    {
+	    // Your code here
+	    Node p = head;
+	    
+	    while(p!=null){
+	        Node q=p.next;
+	        while(q!=null){
+	            if(q.data!=p.data){
+	                break;
+	            }
+	            q = q.next;
+	        }
+	        p.next = q;
+	        p = p.next;
+	    }
+	    
+	    return head;
+    }
+}
