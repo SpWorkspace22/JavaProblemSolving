@@ -1,0 +1,28 @@
+Given a Binary Search Tree. The task is to find the minimum element in this given BST.
+
+Solution:
+
+class Tree {
+    // Function to find the minimum element in the given BST.
+    ArrayList<Integer> as = new ArrayList<Integer>();
+    int minValue(Node node) {
+        
+        inOrder(node);
+        
+        if(as.size()>0){
+            return as.get(0);
+        }
+        
+        return -1;
+    }
+    
+    private void inOrder(Node node){
+        if(node==null){
+            return;
+        }
+        
+        inOrder(node.left);
+        as.add(node.data);
+        inOrder(node.right);
+    }
+}
