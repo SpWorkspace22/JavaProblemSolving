@@ -23,6 +23,5 @@ class Tree {
         
         inOrder(node.left);
         as.add(node.data);
-        inOrder(node.right);
     }
 }
