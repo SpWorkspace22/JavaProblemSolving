@@ -1,0 +1,33 @@
+Given a binary tree of size N, you have to count number of nodes in it. For example, count of nodes in below tree is 4.
+
+        1
+     /      \
+   10      39
+  /
+5
+
+Solution:
+
+class Tree
+{
+    static int count=0;
+	public static int getSize(Node root)
+	{
+//add Code here.
+        preOrder(root);
+        int temp = count;
+        count=0;
+        return temp;
+    }
+    
+
+    private static void preOrder(Node root){
+        if(root==null){
+            return;
+        }
+        
+        count++;
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+}
