@@ -1,0 +1,26 @@
+Given a number N. The task is to generate and print all binary numbers with decimal values from 1 to N.
+Input:
+N = 2
+Output: 
+1 10
+Explanation: 
+Binary numbers from
+1 to 2 are 1 and 10.
+
+Solution:
+
+
+class solve{
+    
+    //Function to generate binary numbers from 1 to N using a queue.
+    static ArrayList<String> generate(int N)
+    {
+        // Your code here
+        ArrayList<String> arr = new ArrayList<String>();
+        for(int i=1;i<=N;i++){
+            arr.add(Integer.toBinaryString(i));
+        }
+        return arr;
+    }
+    
+}
