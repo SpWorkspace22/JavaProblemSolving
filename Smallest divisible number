@@ -1,0 +1,29 @@
+Given a number N, find an integer denoting the smallest number evenly divisible by each number from 1 to n.
+Example 1:
+
+Input:
+N = 3
+Output: 6
+Explanation: 6 is the smallest number 
+divisible by 1,2,3.
+
+Solution:
+
+class Solution {
+    public static long getSmallestDivNum(int n){
+        // code here
+        long res = 1;
+        int i=1;
+        while(i<=n){
+            res = (res*i)/gcd(res,i);
+            i++;
+        }
+        return res;
+    }
+    
+    static long gcd(long a, long b) {
+        if (b == 0) return a;
+        return gcd(b, a%b);
+    }
+    // method to return LCM of two numbers
+}
