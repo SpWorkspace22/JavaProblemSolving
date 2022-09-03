@@ -15,23 +15,18 @@ public class Solution
     boolean isBST(Node node)
     {
         // code here.
-        if (node == null)
+        return isBSTUtil(node, Integer.MIN_VALUE,Integer.MAX_VALUE);
+    }
+    
+    boolean isBSTUtil(Node node, int min, int max){
+        if(node==null){
             return true;
-     
-        /* False if left is > than node */
-        if (node.left != null && node.left.data > node.data)
+        }
+        
+        if(node.data <min || node.data > max){
             return false;
-     
-        /* False if right is < than node */
-        if (node.right != null && node.right.data < node.data)
-            return false;
-     
-        /* False if, recursively, the left or right is not a BST
-         */
-        if (!isBST(node.left) || !isBST(node.right))
-            return false;
-     
-        /* Passing all that, it's a BST */
-        return true;
+        }
+        
+        return (isBSTUtil(node.left, min, node.data - 1) && isBSTUtil(node.right, node.data + 1, max));
     }
 }
