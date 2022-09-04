@@ -1,0 +1,52 @@
+Given a Binary Tree, print Left view of it. Left view of a Binary Tree is set of nodes visible when tree is visited from Left side. The task is to complete the function leftView(), which accepts root of the tree as argument.
+
+Solution:
+
+class Tree
+{
+    
+    //Function to return list containing elements of left view of binary tree.
+    ArrayList<Integer> leftView(Node root)
+    {
+      // Your code here
+      
+      return preOrder(root);
+    }
+    
+    private ArrayList<Integer> preOrder(Node root){
+        ArrayList<Integer> as = new ArrayList<Integer>();
+        if(root==null){
+            return as;
+        }
+        
+        Queue<Node> q = new LinkedList<Node>();
+        q.add(root);
+        
+        while(!q.isEmpty()){
+            int n = q.size();
+ 
+            // Traverse all nodes of current level
+            for (int i = 1; i <= n; i++) {
+                Node temp = q.poll();
+ 
+                // Print the left most element at
+                // the level
+                if (i == 1)
+                    as.add(temp.data);
+                // Add left node to queue
+                if (temp.left != null)
+                    q.add(temp.left);
+                // Add right node to queue
+                if (temp.right != null)
+                    q.add(temp.right);
+            }
+        }
+        
+        return as;
+        
+        
+    }
+    
+    
+}
+
