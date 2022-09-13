@@ -1,0 +1,40 @@
+Given three arrays sorted in increasing order. Find the elements that are common in all three arrays.
+Note: can you take care of the duplicates without using any additional Data Structure?
+
+Solution:
+
+class Solution
+{
+    ArrayList<Integer> commonElements(int a[], int b[], int c[], int n1, int n2, int n3) 
+    {
+         ArrayList<Integer> ls=new ArrayList<>();
+         HashSet<Integer> s1=new HashSet<>();
+         HashSet<Integer> s2=new HashSet<>();
+         HashSet<Integer> s3=new HashSet<>();
+         for(int i=0;i<n1;i++)
+         s1.add(a[i]);
+         for(int i=0;i<n2;i++)
+         s2.add(b[i]);
+         for(int i=0;i<n3;i++)
+         s3.add(c[i]);
+         for(int i=0;i<n3;i++)
+         {
+             if(s1.contains(c[i]) && s2.contains(c[i]))
+             {
+                 if(s3.contains(c[i])==true)
+                 {
+                     if(ls.contains(c[i])==false)
+                     ls.add(c[i]);
+                 }
+             }
+         }
+         if(ls.size()==0)
+         {
+             ls.add(-1);
+             return ls;
+         }
+         else
+         return ls;
+    }
+
+}
