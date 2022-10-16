@@ -1,0 +1,5 @@
+select c.company_code,c.founder,count(lm.lead_manager_code),count(sm.senior_manager_code), count(m.manager_code),count(e.employee_code) from company c,lead_manager lm, senior_manager sm, manager m, employee e where c.company_code=lm.company_code and sm.lead_manager_code=lm.lead_manager_code and m.senior_manager_code=sm.senior_manager_code and e.manager_code = m.manager_code group by c.company_code,c.founder;
+
+
+
+select x,y from (select f1.x as x, f1.y as y from functions f1, functions f2 where f1.x=f2.y and f1.y=f2.x and f1.x!=f1.y) where x<=y union (select * from (select * from functions group by x, y  having x=y and count(*)>1) t2);
