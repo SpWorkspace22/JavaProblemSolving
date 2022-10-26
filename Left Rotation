@@ -80,3 +80,42 @@ class Result {
             return gcd(b, a % b);
     }
 }
+
+
+Solution 2:
+
+timeO (n)
+space O(n)
+
+class Result {
+
+    /*
+     * Complete the 'rotateLeft' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER d
+     *  2. INTEGER_ARRAY arr
+     */
+
+    public static List<Integer> rotateLeft(int d, List<Integer> arr) {
+    // Write your code here
+        ArrayList<Integer> asList = new ArrayList<Integer>();
+ 
+        // Storing the n - d elements of
+        // array arr[] to the front of temp[]
+        for (int i = d; i < arr.size(); i++) {
+            asList.add(arr.get(i));
+        }
+    
+        // Storing the first d elements of array arr[]
+        //  into temp
+        for (int i = 0; i < d; i++) {
+            asList.add(arr.get(i));
+        }
+    
+        return asList;
+    }
+}
+
+
