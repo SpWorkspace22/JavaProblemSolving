@@ -1,0 +1,64 @@
+Sorting is useful as the first step in many different tasks. The most common task is to make finding things easier, but there are other uses as well. In this case, it will make it easier to determine which pair or pairs of elements have the smallest absolute difference between them.
+
+Example
+
+Sorted, . Several pairs have the minimum difference of : . Return the array .
+
+Note
+As shown in the example, pairs may overlap.
+
+Given a list of unsorted integers, , find the pair of elements that have the smallest absolute difference between them. If there are multiple pairs, find them all.
+
+Function Description
+
+Complete the closestNumbers function in the editor below.
+
+closestNumbers has the following parameter(s):
+
+int arr[n]: an array of integers
+Returns
+- int[]: an array of integers as described
+
+Sample Input 0
+
+10
+-20 -3916237 -357920 -3620601 7374819 -7330761 30 6246457 -6461594 266854 
+Sample Output 0
+
+-20 30
+
+
+Solution:
+
+class Result {
+
+    /*
+     * Complete the 'closestNumbers' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+
+    public static List<Integer> closestNumbers(List<Integer> arr) {
+    // Write your code here
+        List<Integer> result = new ArrayList<Integer>();
+        Collections.sort(arr);
+        
+        int smallest = Integer.MAX_VALUE;
+        for(int i=0;i<arr.size()-1;i++){
+            if(Math.abs(arr.get(i)-arr.get(i+1))<=smallest){
+                smallest = Math.abs(arr.get(i)-arr.get(i+1));
+            }
+        }
+        
+        for(int i=0;i<arr.size()-1;i++){
+            if(Math.abs(arr.get(i)-arr.get(i+1))==smallest){
+               result.add(arr.get(i));
+               result.add(arr.get(i+1));
+            }
+        }
+        
+        return result;
+    }
+
+}
