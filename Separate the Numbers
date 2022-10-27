@@ -1,0 +1,36 @@
+class Result {
+
+    /*
+     * Complete the 'separateNumbers' function below.
+     *
+     * The function accepts STRING s as parameter.
+     */
+
+    public static void separateNumbers(String s) {
+    // Write your code here
+        boolean is_perfect = false;
+        
+        int n = (s.length()/2)+1;
+        for(int i=1;i<n;i++){
+            int new_number = Integer.parseInt(s.substring(0,i));
+            String new_s = s.substring(0,i);
+            
+            while(new_s.length()<s.length()){
+                new_number+=1;
+                new_s = new_s + String.valueOf(new_number);
+            }
+            if (new_s.equals(s)){
+                System.out.println("YES "+s.substring(0,i));
+                is_perfect = true;
+                break;   
+            }
+        }
+        
+        if(!is_perfect){
+            System.out.println("NO");
+        }
+        
+
+    }
+
+}
