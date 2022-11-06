@@ -1,0 +1,17 @@
+Given a square grid of characters in the range ascii[a-z], rearrange elements of each row alphabetically, ascending. Determine if the columns are also in ascending alphabetical order, top to bottom. Return YES if they are or NO if they are not.
+
+Solution:
+
+def gridChallenge(grid):
+    # Write your code here
+    n = len(grid) #length of list
+    x = list(map(lambda x : list(x),grid)) # converting each string to list 
+    
+    for i in range(n): # sorting each sublist 
+        x[i].sort()
+        
+    for i in range(len(x[0])): # rows traverse
+        for j in range(n-1):  # columns taverse
+            if x[j][i] > x[j+1][i]:
+                return "NO"
+    return "YES"
