@@ -1,0 +1,13 @@
+Sansa has an array. She wants to find the value obtained by XOR-ing the contiguous subarrays, followed by XOR-ing the values thus obtained. Determine this value.
+
+Example
+
+def sansaXor(arr):
+    # Write your code here
+    if len(arr) % 2 == 0:   
+        return 0
+    else:
+        result = arr[0]
+        for idx in range(2, len(arr), 2):
+            result = result ^ arr[idx]
+        return result
