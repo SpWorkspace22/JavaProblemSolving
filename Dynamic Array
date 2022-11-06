@@ -1,0 +1,44 @@
+Declare a 2-dimensional array, arr, of  n empty arrays. All arrays are zero indexed.
+Declare an integer, lastAnser, and initialize it to 0.
+
+There are  types of queries, given as an array of strings for you to parse:
+
+Query: 1 x y
+Let idx = ((x XOR lastAnser) % n)
+Append the integer y to arr[idx].
+Query: 2 x y
+Let idx = ((x XOR lastAnser) % n)
+Assign the value  arr[idx][y % size(arr[idx])] to lastAnser.
+Store the new value of lastAnser to an answers array.
+
+Function Description
+
+Complete the dynamicArray function below.
+
+dynamicArray has the following parameters:
+- int n: the number of empty arrays to initialize in 
+- string queries[q]: query strings that contain 3 space-separated integers
+
+Returns
+
+int[]: the results of each type 2 query in the order they are presented
+
+Solution:
+
+def dynamicArray(n, queries):
+    arr = [[] for _ in range(n)]
+    last_answer = 0
+    answers = []
+    
+    for q in queries:
+        q_type, x, y = q
+        idx = 0
+        if q_type == 1:
+            idx = ((x ^ last_answer) % n)
+            arr[idx].append(y)
+        else:
+            idx = ((x ^ last_answer) % n)
+            last_answer = arr[idx][y % len(arr[idx])]
+            answers.append(last_answer)
+            
+    return answers
