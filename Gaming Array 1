@@ -1,0 +1,20 @@
+Andy wants to play a game with his little brother, Bob. The game starts with an array of distinct integers and the rules are as follows:
+
+Bob always plays first.
+In a single move, a player chooses the maximum element in the array. He removes it and all elements to its right.
+
+Solution:
+
+def gamingArray(arr):
+    # Write your code here
+    count = 0
+    bigger = 0
+    for i in arr:
+        if i > bigger:
+            bigger = i
+            count=count+1
+            
+    if count % 2 == 0:
+        return "ANDY"
+    
+    return "BOB"
