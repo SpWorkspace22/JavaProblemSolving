@@ -1,0 +1,13 @@
+Watson gives Sherlock an array of integers. His challenge is to find an element of the array such that the sum of all elements to the left is equal to the sum of all elements to the right.
+
+
+def balancedSums(arr):
+    # Write your code here
+    sum1 = sum(arr)
+    temp = 0
+    for a in arr:
+        if temp == (sum1-a-temp):
+            return "YES"
+        temp+=a
+    return "NO"
+    
